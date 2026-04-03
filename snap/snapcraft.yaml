@@ -1,13 +1,13 @@
-# Generated with JReleaser 1.23.0 at 2026-04-03T15:18:41.075205488+02:00
+# Generated with JReleaser 1.23.0 at 2026-04-03T14:15:33.796443199Z
 name: cucumber-messages
-version: "0.1.1"
+version: "0.2.3"
 summary: Cucumber Messages CLI
 description: |
   A commandline interface to work with Cucumber Messages
 
 grade: stable
 confinement: strict
-base: core24
+base: core
 type: app
 
 architectures:
@@ -15,15 +15,15 @@ architectures:
     run-on: [amd64]
     
 apps:
-  cucumber-messages:
-    command: bin/cucumber-messages
+  messages-cli:
+    command: bin/messages-cli
     plugs:
       - home
 
 parts:
-  cucumber-messages:
+  messages-cli:
     plugin: dump
-    source: https://github.com/cucumber/messages-cli/releases/download/v0.1.1/cucumber-messages-0.1.1-linux-x86_64.tar.gz
-    source-checksum: sha256/9f8c7ff2f15c1ff9338bf48ebb52ce0cee438448ca7308dfeccbdcfb84e25baa
+    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.3/messages-cli-0.2.3-linux-x86_64.tar.gz
+    source-checksum: sha256/84c729cf341c09e9b2c41ae7ad7b1c5d6cd69f499bf95e2f1dcb606207b2b3bd
     stage-packages:
       - curl
