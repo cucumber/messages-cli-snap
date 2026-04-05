@@ -1,3 +1,4 @@
+# TODO: Remove this once https://github.com/jreleaser/jreleaser/issues/2027 is released
 # Generated with JReleaser 1.23.0 at 2026-04-05T14:09:44.38022063Z
 name: cucumber-messages
 version: "0.2.9"
@@ -22,7 +23,7 @@ apps:
   cucumber-messages:
     command: bin/cucumber-messages
     environment:
-      JAVA_HOME: "$SNAP/usr/lib/jvm/java"
+      JAVA_HOME: "$SNAP/usr/lib/jvm/java-21-openjdk-${SNAP_ARCH}"
       PATH: "$SNAP/bin:$PATH:$JAVA_HOME/bin"
     plugs:
       - home
