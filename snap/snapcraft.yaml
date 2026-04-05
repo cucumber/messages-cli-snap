@@ -1,8 +1,8 @@
-# TODO: Remove this once https://github.com/jreleaser/jreleaser/issues/2027 is released
-# Generated with JReleaser 1.23.0 at 2026-04-05T14:20:04.645480526Z
+# Generated with JReleaser 1.23.0 at 2026-04-05T17:39:33.052561713Z
 name: cucumber-messages
-version: "0.2.10"
-summary: A commandline interface for working with Cucumber Messages
+title: Cucumber Messages CLI
+version: "0.2.11"
+summary: A commandline interface to work with Cucumber Messages
 description: |
   Cucumber can output test results in newline delimited json format. This
   format can then be transformed into different reports. 
@@ -10,35 +10,55 @@ description: |
   This tool supports the conversion of cucumber messages into cucumber-json,
   html, junit-xml and testng-xml reports.
 
+license: MIT AND Apache-2.0 AND (GPL-2.0 WITH Classpath-exception-2.0)
+
+website: https://cucumber.io
+source-code: https://github.com/cucumber/messages-cli
+contact: https://cucumber.io/community
+issues: https://github.com/cucumber/messages-cli
+donation: https://opencollective.com/cucumber
+
 grade: stable
 confinement: strict
-base: core20
+base: core24
 type: app
 
-architectures:
-  - build-on: [amd64, arm64]
-    
-    
+platforms:
+  amd64:
+    build-on:
+      - amd64
+    build-for:
+      - amd64
+  arm64:
+    build-on:
+      - arm64
+    build-for:
+      - arm64
+
 apps:
   cucumber-messages:
     command: bin/cucumber-messages
-    environment:
-      JAVA_HOME: "$SNAP/usr/lib/jvm/java-21-openjdk-${SNAP_ARCH}"
-      PATH: "$SNAP/bin:$PATH:$JAVA_HOME/bin"
     plugs:
       - home
 
 parts:
   cucumber-messages:
     plugin: dump
-    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.10/cucumber-messages-0.2.10.tar.gz
-    source-checksum: sha256/ae6b84bc185057c84e0c3f6a7278e0c496d62e8e10019794b3f3d8c66dd68c9a
-    stage-packages:
-      - curl
-      - openjdk-21-jre
-      - ca-certificates
-      - ca-certificates-java
-    organize:
-      'usr/lib/jvm/java-*': 'usr/lib/jvm/java'
-    prime:
-      - -usr/lib/jvm/java/lib/security/cacerts
+    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.11/cucumber-messages-0.2.11.tar.gz
+    source-checksum: sha256/cf3a3dfadfd33d5388afa3a56b22a67d57eb7724cbb47e5bc7126463a313decb
+    override-build: |
+      jlink \
+        --add-modules io.cucumber.messages.cli \
+        --launcher cucumber-messages=io.cucumber.messages.cli/io.cucumber.messages.cli.CucumberMessagesCli \
+        --no-man-pages \
+        --no-header-files \
+        --module-path lib \
+        --output working-dir
+      cp -r working-dir/* $CRAFT_PART_INSTALL
+    build-packages:
+      - openjdk-21-jdk
+
+lint:
+  ignore:
+    - library:
+        - lib/*.so
