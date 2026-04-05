@@ -1,6 +1,6 @@
-# Generated with JReleaser 1.23.0 at 2026-04-03T18:07:41.996883744Z
+# Generated with JReleaser 1.23.0 at 2026-04-05T00:08:33.786334152Z
 name: cucumber-messages
-version: "0.2.6"
+version: "0.2.7"
 summary: A commandline interface for working with Cucumber Messages
 description: |
   Cucumber can output test results in newline delimited json format. This
@@ -27,7 +27,7 @@ apps:
 parts:
   cucumber-messages:
     plugin: dump
-    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.6/cucumber-messages-snap-0.2.6-linux-x86_64.tar.gz
-    source-checksum: sha256/235d6a3f0d67523d31c2faab8a9fa84b00097cafccfc9369badd30f00885e490
+    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.7/cucumber-messages-snap-0.2.7-linux-x86_64.tar.gz
+    source-checksum: sha256/f131260e96f5b30ea71f747ddc5e8dd18583563dbe245c7235ff76efdc739c69
     stage-packages:
       - curl
