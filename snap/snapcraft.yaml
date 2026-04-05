@@ -1,7 +1,7 @@
-# Generated with JReleaser 1.23.0 at 2026-04-05T17:39:33.052561713Z
+# Generated with JReleaser 1.23.0 at 2026-04-05T19:40:02.405973132Z
 name: cucumber-messages
 title: Cucumber Messages CLI
-version: "0.2.11"
+version: "0.2.12"
 summary: A commandline interface to work with Cucumber Messages
 description: |
   Cucumber can output test results in newline delimited json format. This
@@ -44,8 +44,8 @@ apps:
 parts:
   cucumber-messages:
     plugin: dump
-    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.11/cucumber-messages-0.2.11.tar.gz
-    source-checksum: sha256/cf3a3dfadfd33d5388afa3a56b22a67d57eb7724cbb47e5bc7126463a313decb
+    source: https://github.com/cucumber/messages-cli/releases/download/v0.2.12/cucumber-messages-0.2.12.tar.gz
+    source-checksum: sha256/2ab89f53633034747817f94479785c22c75cd89dcf91703d8df638c8197c7e57
     override-build: |
       jlink \
         --add-modules io.cucumber.messages.cli \
