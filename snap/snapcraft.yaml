@@ -1,4 +1,4 @@
-# Generated with JReleaser 1.23.0 at 2026-04-05T20:01:49.947646734Z
+# Generated with JReleaser 1.23.0 at 2026-04-05T20:03:49.019341124Z
 name: cucumber-messages
 title: Cucumber Messages CLI
 version: "0.2.13"
@@ -45,7 +45,7 @@ parts:
   cucumber-messages:
     plugin: dump
     source: https://github.com/cucumber/messages-cli/releases/download/v0.2.13/cucumber-messages-0.2.13.tar.gz
-    source-checksum: sha256/d5fa2ecbd301a5ad003edd60a48f63703828e7b9b61077ab14f377d3d7f78c8c
+    source-checksum: sha256/64d13447283e756e9bca4b27046b2fb97b62ae7345540a3284259c1b685f1fc9
     override-build: |
       jlink \
         --add-modules io.cucumber.messages.cli \
